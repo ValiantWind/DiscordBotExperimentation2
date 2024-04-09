@@ -1,10 +1,14 @@
-import { AbstractInstanceType } from "../../utils/types.ts";
-import Component, { ComponentInteraction } from "./Component.ts";
-import Logger from "../../utils/logger.ts";
-import path from "path";
+import { AbstractInstanceType } from "../../utils/types";
+import Component, { ComponentInteraction } from "./Component";
+import Logger from "../../utils/logger";
+import path, { dirname } from "path";
 import fs from "fs";
+import { fileURLToPath } from "url";
 import { pluralize } from "../../utils";
-import { BaseError, ensureError, ErrorType } from "../../utils/errors.ts";
+import { BaseError, ensureError, ErrorType } from "../../utils/errors";
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 
 class ComponentManager {
     // Class instances of components mapped by their customId

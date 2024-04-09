@@ -1,29 +1,31 @@
 {
-  "compilerOptions": {
-	"lib": [
-	  "ESNext"
-	],
-	"module": "esnext",
-	"target": "esnext",
-	"moduleResolution": "bundler",
-	"moduleDetection": "force",
-	"allowImportingTsExtensions": true,
-	"noEmit": true,
-	"composite": true,
-	"strict": true,
-	"downlevelIteration": true,
-	"skipLibCheck": true,
-	"allowSyntheticDefaultImports": true,
-	"forceConsistentCasingInFileNames": true,
-	"allowJs": true,
-	"types": [
-	  "bun-types"
-	  // add Bun global
+	"compilerOptions": {
+		"lib": [
+			"ESNext"
+		],
+		"module": "ESNext",
+		"target": "ESNext",
+		"moduleResolution": "node",
+		"moduleDetection": "force",
+		"allowImportingTsExtensions": true,
+		"noEmit": true,
+		"verbatimModuleSyntax": true,
+		"composite": true,
+		"strict": true,
+		"resolveJsonModule": true,
+		"esModuleInterop": true,
+		"downlevelIteration": true,
+		"skipLibCheck": true,
+		"allowSyntheticDefaultImports": true,
+		"forceConsistentCasingInFileNames": true,
+		"allowJs": true,
+		"types": [
+			"bun-types"
+		]
+	},
+	"include": [
+		"./data/**/*.json",
+		"./src/**/*",
+		"./tests/**/*",
 	]
-  },
-  "include": [
-	"./data/**/*.json",
-	"./src/**/*",
-	"./tests/**/*",
-  ]
 }

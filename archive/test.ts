@@ -6,7 +6,7 @@ import {
     StringSelectMenuBuilder
 } from "discord.js";
 
-import Command from "../handlers/commands/Command.ts";
+import Command from "../handlers/commands/Command";
 import { options } from "../../data/examples/select-menu.json";
 
 export default class Test extends Command<ChatInputCommandInteraction> {

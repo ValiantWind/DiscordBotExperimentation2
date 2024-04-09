@@ -1,16 +1,35 @@
-import { loadListeners } from "./handlers/events/loader.ts";
-import { Client } from "discord.js";
+import { loadListeners } from "./handlers/events/loader";
+import { Client, GatewayIntentBits, Collection } from "discord.js";
 
-if (!process.env.DISCORD_TOKEN) {
-    throw new Error("No token provided! Configure the DISCORD_TOKEN environment variable.");
-}
+import Keys from "./keys"
+
 
 export const client = new Client({
-    intents: [],
+    intents: [
+			GatewayIntentBits.Guilds,
+			GatewayIntentBits.GuildMembers,
+			GatewayIntentBits.MessageContent,
+			GatewayIntentBits.GuildModeration,
+			GatewayIntentBits.GuildMessages
+		],
     partials: []
 });
 
 (async () => {
     await loadListeners();
-    await client.login(process.env.DISCORD_TOKEN);
+    await client.login(Keys.clientToken);
 })();
+
+process.on("unhandledRejection", (reason, promise) => {
+	console.log("Unhandled Rejection at:", promise, "reason:", reason);
+});
+
+process.on("uncaughtException", (err, origin) => {
+	console.log(
+		`Caught exception: ${err}\n` + `Exception origin: ${origin}`,
+	);
+});
+
+process.on("uncaughtExceptionMonitor", (err, origin) => {
+	console.log("Uncaught Exception Monitor", err, origin);
+});

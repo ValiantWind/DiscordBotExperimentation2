@@ -1,11 +1,15 @@
-import EventListener from "./EventListener.ts";
-import path from "path";
+import EventListener from "./EventListener.js";
+import path, { dirname } from "path";
 import fs from "fs";
+import { fileURLToPath } from "url";
 
-import { client } from "../../index.ts";
-import { AbstractInstanceType } from "../../utils/types.ts";
-import Logger from "../../utils/logger.ts";
+import { client } from "../../index.js";
+import { AbstractInstanceType } from "../../utils/types.js";
+import Logger from "../../utils/logger.js";
 import { pluralize } from "../../utils";
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 
 export async function loadListeners(): Promise<void> {
     const dirpath = path.resolve(__dirname, "../../events");

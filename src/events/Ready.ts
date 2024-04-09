@@ -1,9 +1,9 @@
-import { components } from "../handlers/components/ComponentManager.ts";
-import { commands } from "../handlers/commands/CommandManager.ts";
+import { components } from "../handlers/components/ComponentManager";
+import { commands } from "../handlers/commands/CommandManager";
 import { Client, Events } from "discord.js";
 
-import EventListener from "../handlers/events/EventListener.ts";
-import Logger, { AnsiColor } from "../utils/logger.ts";
+import EventListener from "../handlers/events/EventListener";
+import Logger, { AnsiColor } from "../utils/logger";
 
 export default class Ready extends EventListener {
     constructor() {
